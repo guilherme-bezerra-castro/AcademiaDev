@@ -3,23 +3,27 @@ package com.academiadev.domain.entities;
 public class Student extends User{
 	private String subscriptionPlan;
 	
-	public Student(String id, String name, String email, String plan) {
+	public Student(String id, String name, String email, String subscriptionPlan) {
 		super(id, name, email);
-		this.subscriptionPlan = plan;
+		this.subscriptionPlan = subscriptionPlan;
 	}
 
 	public String getSubscriptionPlan() {
 		return subscriptionPlan;
 	}
 
-	public void setSubscriptionPlan(String plan) {
-		this.subscriptionPlan = plan;
+	public void setSubscriptionPlan(String subscriptionPlan) {
+		this.subscriptionPlan = subscriptionPlan;
 	}
 
 	public boolean canEnroll(int activeEnrollments) {
-		if (subscriptionPlan.equals("BASIC")) {
-			return activeEnrollments < 3;
-		}
+        if ("BASIC".equalsIgnoreCase(subscriptionPlan)) {
+            return activeEnrollments < 3;
+        }
 	    return true;
 	}
+	@Override
+    public String toString() {
+        return super.toString() + " | Plano: " + subscriptionPlan;
+    }
 }

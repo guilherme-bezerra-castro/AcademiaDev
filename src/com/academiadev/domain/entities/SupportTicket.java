@@ -1,6 +1,7 @@
 package com.academiadev.domain.entities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class SupportTicket {
 	private String id;
@@ -31,5 +32,12 @@ public class SupportTicket {
     }
     public LocalDateTime getCreatedAt() { 
     	return createdAt; 
+    }
+    
+    @Override
+    public String toString() {
+        String data = createdAt.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+        return String.format("[Ticket #%s] \"%s\"\n  Aberto por: %s\n  Mensagem: %s\n  Data: %s",
+                id, title, openedBy.getName(), message, data);
     }
 }

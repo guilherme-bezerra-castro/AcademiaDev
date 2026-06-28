@@ -4,12 +4,12 @@ import com.academiadev.domain.enums.CourseStatus;
 import com.academiadev.domain.enums.DifficultyLevel;
 
 public class Course {
-	private String id;
-    private String title;
-    private String description;
-    private String instructorName;
-    private int durationInHours;
-    private DifficultyLevel difficultyLevel;
+	private final String id;
+    private final String title;
+    private final String description;
+    private final String instructorName;
+    private final int durationInHours;
+    private final DifficultyLevel difficultyLevel;
     private CourseStatus status;
 
     public Course(String id, String title, String description, String instructorName, int durationInHours, DifficultyLevel difficultyLevel) {
@@ -47,10 +47,12 @@ public class Course {
     public CourseStatus getStatus() { 
     	return status; 
     }
+    
 
     public boolean isActive() {
         return status == CourseStatus.ACTIVE;
     }
+    
 
     public void activate() { 
     	this.status = CourseStatus.ACTIVE; 
@@ -59,5 +61,10 @@ public class Course {
     public void deactivate() {
     	this.status = CourseStatus.INACTIVE; 
     }
-
+    
+    
+    @Override
+    public String toString() {
+        return String.format("[%s] %s | %s | %sh | %s | Instrutor: %s", status, title, difficultyLevel, durationInHours, description, instructorName);
+    }
 }
