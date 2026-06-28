@@ -1,6 +1,6 @@
 # AcademiaDev — Plataforma de Cursos Online
  
-Protótipo de linha de comando desenvolvido em Java puro, seguindo estritamente os princípios da **Clean Architecture**.
+Protótipo de linha de comando desenvolvido em Java puro, seguindo estritamente os princípios da **Clean Architecture**. Desenvolvido para avaliação
  
 ---
  
@@ -109,6 +109,11 @@ Os UseCases nunca importam `GenericCsvExporter`. A camada `application` permanec
  
 **UI de console.** `ConsoleView` só imprime (nunca lê input e nunca contém lógica condicional de negócio). `ConsoleController` lê o input, traduz para chamadas de UseCase e trata exceções exibindo mensagens amigáveis. Essa separação garante que trocar o console por uma interface web exigiria apenas uma nova implementação de controller e view — os UseCases permaneceriam intocados.
  
+---
+
+## Contexto do projeto
+> Este projeto foi desenvolvido como trabalho avaliativo da disciplina de Engenharia de Software no curso de Análise e Desenvolvimento de Sistemas (IFSP).
+
 ---
  
 ## Ferramentas e Tecnologias
